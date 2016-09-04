@@ -1,7 +1,6 @@
 package main
 
 import (
-	"db"
 	"flag"
 	"server"
 )
@@ -13,7 +12,5 @@ func main() {
 
 	flag.Parse()
 
-	db.Open()
-	defer db.Db.Close()
 	server.Run(port)
 }
