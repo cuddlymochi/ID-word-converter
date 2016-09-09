@@ -8,7 +8,7 @@ import (
 func main() {
 	var port int
 
-	flag.IntVar(&port, "port", 8081, "Port the server listens to")
+	flag.IntVar(&port, "port", 8088, "Port the server listens to")
 
 	flag.Parse()
 
