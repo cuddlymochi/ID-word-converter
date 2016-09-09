@@ -4,6 +4,7 @@ import (
 	"errors"
 	"net/http"
 	"converter"
+	"strings"
 )
 
 
@@ -32,13 +33,13 @@ func getPhraseFromNum(w http.ResponseWriter, r *http.Request) {
 
 func getNumFromPhrase(w http.ResponseWriter, r *http.Request) {
 	
-	adj := r.FormValue("Adjective")
+	adj := strings.ToLower(r.FormValue("Adjective"))
 	if adj == "" {
 		WriteError(w, errors.New("Error parsing Adjective form value"), 400)
 		return
 	}
 
-	noun := r.FormValue("Noun")
+	noun := strings.ToLower(r.FormValue("Noun"))
 	if noun == "" {
 		WriteError(w, errors.New("Error parsing Noun form value"), 400)
 		return
